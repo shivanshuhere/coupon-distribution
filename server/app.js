@@ -7,13 +7,20 @@ import dotenv from "dotenv";
 const app = express();
 
 // middleware
-dotenv.config();
+dotenv.config({
+  path: "./.env",
+});
 app.use(bodyParser.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5174",
+    credentials: true,
+  })
+);
 app.use(cookieParser());
 
 //routes
-import couponRoutes from "./routes/coupon.route";
+import couponRoutes from "./routes/coupon.route.js";
 app.use("/api/coupon", couponRoutes);
 
 export default app;

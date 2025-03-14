@@ -7,13 +7,14 @@ const CouponClaim = () => {
   const claimCoupon = async () => {
     try {
       const response = await axios.post(
-        `${SERVER_URI}/claim-coupon`,
+        // `${import.meta.env.SERVER_URI}/api/coupon/claim`,
+        "http://localhost:8080/api/coupon/claim",
         {},
         { withCredentials: true }
       );
-      setMessage(response.data.message);
+      setMessage(response?.data?.message);
     } catch (error) {
-      setMessage(error.response.data.message);
+      setMessage(error?.response?.data?.message);
     }
   };
 

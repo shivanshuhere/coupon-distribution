@@ -10,4 +10,4 @@ const couponSchema = new Schema(
   }
 );
 
-export default Coupon = model("Coupon", couponSchema);
+export default model("Coupon", couponSchema);

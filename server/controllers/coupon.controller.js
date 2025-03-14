@@ -1,11 +1,11 @@
-import Coupon from "../models/coupon.model";
+import Coupon from "../models/coupon.model.js";
 
 const ipClaims = {};
 const cookieClaims = {};
 
 const claimCoupon = async (req, res) => {
   const ip = req.ip;
-  const cookie = req.cookies.couponClaim;
+  const cookie = req.cookies?.couponClaim;
   const currentTime = Date.now();
 
   // Check IP and cookie restrictions
