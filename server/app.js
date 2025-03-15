@@ -24,4 +24,9 @@ app.use(cookieParser());
 import couponRoutes from "./routes/coupon.route.js";
 app.use("/api/coupon", couponRoutes);
 
+//test
+app.get("/", (req, res)=>{
+  res.send("<h1>Home page</h1>")
+})
+
 export default app;
