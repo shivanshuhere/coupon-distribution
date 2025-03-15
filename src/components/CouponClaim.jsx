@@ -24,7 +24,7 @@ const CouponClaim = () => {
     const fetchCoupons = async () => {
       try {
         const response = await axios.get(
-          "https://coupon-distribution-za7h.onrender.com/api/coupon/get",
+          "https://coupon-distribution-za7h.onrender.com/api/coupon/get"
           // "http://localhost:8080/api/coupon/get",
         );
         if (response) {
@@ -32,6 +32,7 @@ const CouponClaim = () => {
         }
       } catch (error) {
         setMessage(error?.response?.data?.message || "An error occurred while fetching the coupons.");
+        console.log(error);
       }
     };
 
