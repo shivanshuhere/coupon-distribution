@@ -11,11 +11,10 @@ const CouponClaim = () => {
       const response = await axios.post(
         "https://coupon-distribution-za7h.onrender.com/api/coupon/claim",
         // "http://localhost:8080/api/coupon/claim",
-        {},
-        { withCredentials: true }
       );
       setMessage(response?.data?.message);
     } catch (error) {
+      console.log(error)
       setMessage(error?.response?.data?.message || "An error occurred while claiming the coupon.");
     }
   };
