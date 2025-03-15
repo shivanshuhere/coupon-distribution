@@ -1,5 +1,5 @@
 import React from "react";
-import CouponClaim from "./components/couponClaim";
+import CouponClaim from "./components/couponClaim.jsx";
 
 function App() {
   return (
