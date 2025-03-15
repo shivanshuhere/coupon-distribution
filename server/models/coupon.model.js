@@ -1,13 +1,13 @@
-import { Schema, model } from "mongoose";
+import mongoose from "mongoose";
 
-const couponSchema = new Schema(
-  {
-    code: String,
-    claimed: Boolean,
-  },
-  {
-    timestamps: true,
-  }
-);
 
-export const Coupon =  model("Coupon", couponSchema, "coupons");
+const couponSchema = new mongoose.Schema({
+  code: String,
+  claimed : Boolean,
+}, {
+      timestamps: true,
+    });
+
+const Coupon = mongoose.model('Coupon', couponSchema, 'coupons');
+export {Coupon};
+

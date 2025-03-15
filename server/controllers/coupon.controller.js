@@ -42,15 +42,15 @@ const claimCoupon = async (req, res) => {
     return res.status(500).json({error})
   }};
 
-const getCoupons = async (req, res) => {
-   try {
-     const coupons = await Coupon.find();
-     if(coupons == []) return res.status(400).json({message : "no coupons found.", coupons: null});
-     return res.status(200).json({message:"Coupons found", coupons})
-   } catch (error) {
-    return res.status(500).json({error})
-    
-   }
-}
+const getCoupons =  async (req, res) => {
+  try {
+    const coupons = await Coupon.find({});
+    res.json(coupons);
+  } catch (error) {
+    console.error('Error fetching coupons:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 
 export { claimCoupon ,getCoupons };
