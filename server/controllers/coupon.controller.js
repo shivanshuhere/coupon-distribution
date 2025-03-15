@@ -45,7 +45,7 @@ const claimCoupon = async (req, res) => {
 const getCoupons =  async (req, res) => {
   try {
     const coupons = await Coupon.find({});
-    res.json(coupons);
+    res.json({message : "Coupon send successfully!",coupons});
   } catch (error) {
     console.error('Error fetching coupons:', error);
     res.status(500).json({ error: 'Internal Server Error' });
