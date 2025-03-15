@@ -45,17 +45,19 @@ const CouponClaim = () => {
 
         <div className="coupon-codes">
           <h2>Coupon Codes</h2>
-          {coupons.map((item, index) => (
-
-            <button className="cta" onClick={claimCoupon} key={index}>
-              <span>Get Coupon {item?.code}</span>
-              <svg width="15px" height="10px" viewBox="0 0 13 10">
-                <path d="M1,5 L11,5"></path>
-                <polyline points="8 1 12 5 8 9"></polyline>
-              </svg>
-            </button>
-
-          ))}
+          {coupons.map((item, index) => {
+            if (item?.claimed == false) {
+              return (
+                <button className="cta" onClick={claimCoupon} key={index}>
+                  <span>Get Coupon {item?.code}</span>
+                  <svg width="15px" height="10px" viewBox="0 0 13 10">
+                    <path d="M1,5 L11,5"></path>
+                    <polyline points="8 1 12 5 8 9"></polyline>
+                  </svg>
+                </button>
+              )
+            }
+          })}
         </div>
       ) : (
         <h2>No Coupons are available at the time... please come back later.</h2>
