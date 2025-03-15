@@ -44,7 +44,7 @@ const claimCoupon = async (req, res) => {
 
 const getCoupons = async (req, res) => {
    try {
-     const coupons = await Coupon.find({claimed : "false"});
+     const coupons = await Coupon.find();
      if(coupons == []) return res.status(400).json({message : "no coupons found.", coupons: null});
      return res.status(200).json({message:"Coupons found", coupons})
    } catch (error) {
