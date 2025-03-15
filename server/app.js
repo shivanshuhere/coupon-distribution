@@ -13,7 +13,8 @@ dotenv.config({
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    // origin: "http://localhost:5174",
+    origin:"https://coupon-distributor.netlify.app",
     credentials: true,
   })
 );
