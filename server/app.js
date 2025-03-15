@@ -14,8 +14,8 @@ app.use(bodyParser.json());
 app.use(
   cors({
     credentials: true,
-    // origin: 'https://coupon-distributor.netlify.app/',
-    origin: '*',
+    origin: 'https://coupon-distributor.netlify.app',
+    // origin: '*',
     // origin : "http://127.0.0.1:5173",
   methods: 'GET,POST,PUT,DELETE',
   })
