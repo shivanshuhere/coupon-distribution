@@ -75,6 +75,6 @@ Once the application is running, you can use it to manage coupons. The interface
 ## Deployment
 The Coupon Distribution project is deployed and accessible online. You can access the live versions of both the backend server and the frontend application using the following links:
 
-- Backend Server: Coupon Distribution Server
-- Frontend Application: Coupon Distributor
+- Backend Server: [Coupon Distribution Server](https://coupon-distribution-za7h.onrender.com)
+- Frontend Application: [Coupon Distributor](https://coupon-distributor.netlify.app/)
 ---
