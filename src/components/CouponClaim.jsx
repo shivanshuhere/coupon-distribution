@@ -9,6 +9,7 @@ const CouponClaim = () => {
     try {
       const response = await axios.post(
         "https://coupon-distribution-za7h.onrender.com/api/coupon/claim",
+        // "http://localhost:8080/api/coupon/claim",
         {},
         { withCredentials: true }
       );
