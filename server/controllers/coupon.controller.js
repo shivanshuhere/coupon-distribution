@@ -11,14 +11,13 @@ const claimCoupon = async (req, res) => {
   // Check IP and cookie restrictions
   if (ipClaims[ip] && currentTime - ipClaims[ip] < 3600000) {
     return res
-      .status(400)
-      .json({ message: "You can claim another coupon in 1 hour." });
+      .status(200)
+      .json({ message: `You can claim another coupon in ${Math.ceil((3600000 - (currentTime - ipClaims[ip]))/60000)} minutes.` });
   }
-
   if (cookieClaims[cookie] && currentTime - cookieClaims[cookie] < 3600000) {
     return res
-      .status(400)
-      .json({ message: "You can claim another coupon in 1 hour." });
+      .status(200)
+      .json({ message: `You can claim another coupon in ${Math.ceil((3600000 - (currentTime - cookieClaims[cookie]))/60000)} minutes.` });
   }
 
   // Find an unclaimed coupon
@@ -38,4 +37,10 @@ const claimCoupon = async (req, res) => {
   res.json({ message: "Coupon claimed successfully!", coupon: coupon.code });
 };
 
-export { claimCoupon };
+const getCoupons = async (req, res) => {
+    const coupons = await Coupon.find({claimed : "false"});
+    if(coupons == []) return res.status(400).json({message : "no coupons found.", coupons: null});
+    return res.status(200).json({message:"Coupons found", coupons})
+}
+
+export { claimCoupon ,getCoupons };
